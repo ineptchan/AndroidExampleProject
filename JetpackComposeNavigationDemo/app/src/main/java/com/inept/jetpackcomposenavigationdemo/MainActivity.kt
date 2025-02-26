@@ -52,7 +52,7 @@ fun NavigationApp(modifier: Modifier = Modifier) {
     val currentBackStack by navController.currentBackStackEntryAsState()
     val navDestination = currentBackStack?.destination
     var currentScreen =
-        navigationDestinationsList.find { it.route == navDestination?.route } ?: Content
+        navigationDestinationsList.find { it.route == navDestination?.route } ?: ContentDestination
 
     Column(modifier = modifier.fillMaxSize()) {
         Box(
@@ -76,12 +76,12 @@ fun NavigationApp(modifier: Modifier = Modifier) {
 fun NavigationNavHost(navController: NavHostController) {
     NavHost(
         navController = navController,
-        startDestination = Content.route,
+        startDestination = ContentDestination.route,
     ) {
-        composable(route = Content.route) {
+        composable(route = ContentDestination.route) {
             ContentScreen()
         }
-        composable(Download.route) {
+        composable(DownloadDestination.route) {
             DownloadScreen(onToDownloadList = {
                 navController.navigateToDownloadList(downloadList = "a,b,c,d,e,f")
             })
@@ -89,12 +89,12 @@ fun NavigationNavHost(navController: NavHostController) {
 
         //DeepLink and Argument 深层链接和参数
         composable(
-            route = DownloadList.routeWithArgs,
-            arguments = DownloadList.arguments,
-            deepLinks = DownloadList.deepLinks
+            route = DownloadListDestination.routeWithArgs,
+            arguments = DownloadListDestination.arguments,
+            deepLinks = DownloadListDestination.deepLinks
         ) { navBackStackEntry ->
             val downloadList =
-                navBackStackEntry.arguments?.getString(DownloadList.downloadListArg)
+                navBackStackEntry.arguments?.getString(DownloadListDestination.downloadListArg)
             DownloadListScreen(downloadList = downloadList)
         }
     }

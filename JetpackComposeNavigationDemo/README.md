@@ -23,17 +23,17 @@ interface NavigationDestinations {
     val route: String
 }
 
-object Content : NavigationDestinations {
+object ContentDestination : NavigationDestinations {
     override val icon = Icons.Filled.Apps
     override val route = "content"
 }
 
-object Download : NavigationDestinations {
+object DownloadDestination : NavigationDestinations {
     override val icon = Icons.Filled.Download
     override val route = "download"
 }
 
-val navigationDestinationsList = listOf(Content, Download)
+val navigationDestinationsList = listOf(ContentDestination, DownloadDestination)
 ```
 
 ### 3.创建底部导航组件
@@ -69,12 +69,12 @@ fun NavigationBottomRow(onSelected: (NavigationDestinations) -> Unit, currentScr
 fun NavigationNavHost(navController: NavHostController) {
     NavHost(
         navController = navController,
-        startDestination = Content.route,
+        startDestination = ContentDestination.route,
     ) {
-        composable(route = Content.route) {
+        composable(route = ContentDestination.route) {
             ContentScreen()
         }
-        composable(Download.route) {
+        composable(DownloadDestination.route) {
             DownloadScreen()
         }
     }
@@ -102,7 +102,7 @@ fun NavigationApp(modifier: Modifier = Modifier) {
     val currentBackStack by navController.currentBackStackEntryAsState()
     val navDestination = currentBackStack?.destination
     var currentScreen =
-        navigationDestinationsList.find { it.route == navDestination?.route } ?: Content
+        navigationDestinationsList.find { it.route == navDestination?.route } ?: ContentDestination
 
     Column(modifier = modifier.fillMaxSize()) {
         Box(
@@ -153,7 +153,7 @@ interface NavigationDestinations {
 
 //...
 
-object DownloadList : NavigationDestinations {
+object DownloadListDestination : NavigationDestinations {
     override val icon = Icons.Filled.FormatListNumbered
     override val route = "download_list"
     const val downloadListArg = "download_list_string"
@@ -167,25 +167,25 @@ object DownloadList : NavigationDestinations {
 `DownloadListScreen.kt`
 ```kotlin
 @Composable
-fun DownloadListScreen(downloadList: String?) {
+fun DownloadListScreen(downloadListDestination: String?) {
     Column {
         Text("ListScreen")
-        Text(downloadList ?: "Null")
+        Text(downloadListDestination ?: "Null")
     }
 }
 ```
 
 ### 2.设置路由信息
-route设置为DownloadList.routeWithArgs
+route设置为DownloadListDestination.routeWithArgs
 
 ```kotlin
 @Composable
 fun NavigationNavHost(navController: NavHostController) {
     NavHost(
         navController = navController,
-        startDestination = Content.route,
+        startDestination = ContentDestination.route,
     ) {
-        composable(route = Content.route) {
+        composable(route = ContentDestination.route) {
             ContentScreen()
         }
         composable(Download.route) {
@@ -193,11 +193,11 @@ fun NavigationNavHost(navController: NavHostController) {
         }
 
         composable(
-            route = DownloadList.routeWithArgs,
-            arguments = DownloadList.arguments,
+            route = DownloadListDestination.routeWithArgs,
+            arguments = DownloadListDestination.arguments,
         ) { navBackStackEntry ->
             val downloadList =
-                navBackStackEntry.arguments?.getString(DownloadList.downloadListArg)
+                navBackStackEntry.arguments?.getString(DownloadListDestination.downloadListArg)
             DownloadListScreen(downloadList = downloadList)
         }
     }

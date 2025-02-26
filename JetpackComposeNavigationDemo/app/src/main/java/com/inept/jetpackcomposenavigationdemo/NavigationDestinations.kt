@@ -14,17 +14,17 @@ interface NavigationDestinations {
     val route: String
 }
 
-object Content : NavigationDestinations {
+object ContentDestination : NavigationDestinations {
     override val icon = Icons.Filled.Apps
     override val route = "content"
 }
 
-object Download : NavigationDestinations {
+object DownloadDestination : NavigationDestinations {
     override val icon = Icons.Filled.Download
     override val route = "download"
 }
 
-object DownloadList : NavigationDestinations {
+object DownloadListDestination : NavigationDestinations {
     override val icon = Icons.Filled.FormatListNumbered
     override val route = "download_list"
     const val downloadListArg = "download_list_string"
@@ -37,4 +37,4 @@ object DownloadList : NavigationDestinations {
     )
 }
 
-val navigationDestinationsList = listOf(Content, Download)
+val navigationDestinationsList = listOf(ContentDestination, DownloadDestination)
