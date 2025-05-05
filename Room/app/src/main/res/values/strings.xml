@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">Room</string>
+    <string name="user_home_title">UserHome</string>
+    <string name="user_home_username">Username:%1$s</string>
+    <string name="user_home_id">Id:%1$s</string>
+    <string name="user_home_password">Password:%1$s</string>
+    <string name="user_home_level">Level:%1$s</string>
+</resources>

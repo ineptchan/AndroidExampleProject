@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Room</string>
+    <string name="user_home_title">用户主页</string>
+    <string name="user_home_username">用户名:%1$s</string>
+    <string name="user_home_id">Id:%1$s</string>
+    <string name="user_home_password">密码:%1$s</string>
+    <string name="user_home_level">等级:%1$s</string>
+</resources>
