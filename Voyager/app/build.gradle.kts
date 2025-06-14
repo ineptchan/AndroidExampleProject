@@ -69,4 +69,6 @@ dependencies {
     implementation(libs.voyager.transitions)
     implementation(libs.voyager.tab.navigator)
     implementation(libs.voyager.bottom.sheet.navigator)
+
+    implementation("androidx.compose.material:material-icons-extended:1.7.8")
 }

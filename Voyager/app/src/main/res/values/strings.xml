@@ -1,4 +1,8 @@
 <resources>
     <string name="app_name">Voyager</string>
     <string name="home">Home</string>
+    <string name="settings">Settings</string>
+    <string name="account">Account</string>
+    <string name="network">Network</string>
+    <string name="apps">Apps</string>
 </resources>
