@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">Media Preview</string>
+    <string name="scale">Scale</string>
+    <string name="scale_zoomable_view">ScaleZoomableView</string>
+    <string name="scale_home">ScaleHome</string>
+    <string name="scale_image_pager">ImagePager</string>
+    <string name="scale_image_list">ImageList</string>
+</resources>

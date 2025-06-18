@@ -65,7 +65,6 @@ class MainActivity : ComponentActivity() {
     }
 }
 
-
 @Composable
 private fun RowScope.TabNavigationItem(tab: Tab) {
     val tabNavigator = LocalTabNavigator.current
